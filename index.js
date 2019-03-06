@@ -5,9 +5,9 @@ const passport = require('passport');
 // const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 
-require('./models/providerMapData');
+require('./models/model.js');
 require('./models/users');
-require('./models/devices');
+// require('./models/devices');
 // require('./services/passport');
 
 mongoose.connect(keys.MONGODB_URI, {useNewUrlParser: true});
@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 // app.use(passport.session());
 
 require('./routes/mainRoutes')(app);
+require('./routes/modelRoutes')(app);
 // require('./routes/appDeviceRoutes')(app);
 // require('./routes/appUserRoutes')(app);
 // require('./routes/webAuthUserRoutes')(app);
