@@ -5,25 +5,16 @@ const {Schema} = mongoose;
 // Store data for push notifications
 
 const modelSchema = new Schema({
-  _id: {
-    type: String,
-    required: true,
-    unique: true
-  },
   title: {
     type: String,
-    required: true
   },
   description: {
-    type: String,
-    required: true
+    type: String
   },
-  params: {
-    type: [{
-      type: String
-    }],
-    required: true
-  }
+  params: [{
+      paramName: String,
+      valueType: String
+  }]
 });
 
 modelSchema.methods.getJSON = function() {
@@ -32,10 +23,11 @@ modelSchema.methods.getJSON = function() {
   return _.pick(modelObject, ['title', 'description', 'params']);
 }
 
-deviceSchema.pre('save', function (next) {
-  var user = this;
-  user. = new Date();
-  next();
+/**
+In case we need custom saving procedure:
+modelSchema.pre('save', function (next) {
+
 });
+**/
 
 mongoose.model('models', modelSchema);

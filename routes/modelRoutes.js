@@ -40,12 +40,14 @@ module.exports = (app) => {
     }).catch((e) => res.status(404).send());
   });
 
+  /** To Be Implemented
   app.patch('/appUser/addInsurance', appUserAuth, (req, res) => {
-    /** To Be Implemented **/
+
   });
 
   app.delete('/appUser/deleteInsurance', appUserAuth, (req, res) => {
-    /** To Be Implemented **/
+
   });
+  **/
 
 };

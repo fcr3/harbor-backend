@@ -1,8 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const cookieSession = require('cookie-session');
+const bodyParser = require('body-parser');
+/**
+Possible Auth Packages for Later Use:
+const cookieSession = require('cookie-session');
 const passport = require('passport');
-// const bodyParser = require('body-parser');
+**/
 const keys = require('./config/keys');
 
 require('./models/model.js');
