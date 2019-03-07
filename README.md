@@ -16,6 +16,11 @@ Model
 ```
 
 ## Routes:
+### GET:
+- /api/getModels
+
+### POST:
+- /api/newModel
 
 
 ## Technology:
