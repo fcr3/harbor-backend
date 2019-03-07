@@ -10,6 +10,8 @@ module.exports = (app) => {
     var body = _.pick(req.body, ['title', 'description', 'params']);
     var newModel = new Models(body);
 
+    console.log(body);
+
     newModel.save().then(() => {
       res.send({success: true, params: body});
     }).catch((e) => {
@@ -19,8 +21,24 @@ module.exports = (app) => {
 
   app.get('/api/getModels', (req, res) => {
     Models.find({}, null, {limit: 8}, (err, models) => {
+      var requestModels = models.map((val) => {
+        const newParams = val.params.map((paramObj) => {
+          const retParams = {
+            paramName: paramObj.paramName,
+            valueType: paramObj.valueType
+          };
+          return retParams;
+        });
+
+        return {
+          title: val.title,
+          description: val.description,
+          params: newParams
+        }
+      });
+
       if (err) {res.status(401).send();}
-      else {res.send({message: 'Sample Data', models});}
+      else {res.send({message: 'Sample Data', models: requestModels});}
     });
   });
 

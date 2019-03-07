@@ -25,8 +25,8 @@ Model
 - /api/newModel
   - Provide ```title```, ```description```, and ```params``` in request body
 
-
 ## Technology:
-- MongoDB
+- MongoDB (mLab or your own setup if you want to host local database)
 - Express
 - Mongoose
+- Nodemon (optional - purely for testing)
