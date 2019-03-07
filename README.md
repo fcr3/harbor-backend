@@ -19,10 +19,11 @@ Model
 ### GET:
 - /api/getModels
 - /api/getModel/id=:id&model_name=:name
+  - Provide ```id``` and ```name``` in params for url
 
 ### POST:
 - /api/newModel
-  - Provide ```title```, ```description```, and ```params``` in request body 
+  - Provide ```title```, ```description```, and ```params``` in request body
 
 
 ## Technology:
